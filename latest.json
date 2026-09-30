@@ -1,13 +1,11 @@
 {
-  "version": "1.2.12",
+  "version": "1.2.13",
   "mandatory": false,
-  "published_at": "2026-09-30T20:09:14.503182+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.12/PontoGVDasa-Setup-1.2.12.exe",
-  "sha256": "2aa5a6e5fa663e218c72a7acebc0d37af71177e48eb4b3ddcbaca9a071b57763",
+  "published_at": "2026-09-30T21:16:17.574450+00:00",
+  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.13/PontoGVDasa-Setup-1.2.13.exe",
+  "sha256": "1f111f753d583446541919e73020c31c37a34a00924bf8d94ab1c51f09463bd9",
   "notes": [
-    "Adicionado atualizador automático com consulta ao diretório público do GitHub.",
-    "Adicionada a aba Configurar > Atualizações com verificação e instalação da nova versão.",
-    "Downloads de atualização agora são validados por SHA-256 antes da instalação.",
-    "Corrigido o empacotamento do Playwright para evitar o erro [WinError 2] no Teste seguro e no Espelho."
+    "Corrigido o Espelho: quando o Portal RH falhava, a tela ficava presa em \"Consultando o Portal RH...\" sem mostrar o motivo.",
+    "Falhas na conferência das batidas, no envio ao EasyMOB e nas atualizações agora ficam registradas no log para diagnóstico."
   ]
 }

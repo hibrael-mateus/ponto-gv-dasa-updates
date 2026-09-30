@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.2.13",
+    "mandatory": false,
+    "published_at": "2026-09-30T21:16:17.574450+00:00",
+    "notes": [
+      "Corrigido o Espelho: quando o Portal RH falhava, a tela ficava presa em \"Consultando o Portal RH...\" sem mostrar o motivo.",
+      "Falhas na conferência das batidas, no envio ao EasyMOB e nas atualizações agora ficam registradas no log para diagnóstico."
+    ]
+  },
+  {
     "version": "1.2.12",
     "mandatory": false,
     "published_at": "2026-09-30T20:09:14.503182+00:00",
