@@ -4,12 +4,12 @@ Este repositório público contém somente os metadados e instaladores de atuali
 
 ## Arquivos
 
-- `latest.json`: versão disponível, URL do instalador, SHA-256 e notas; criado após o primeiro instalador ser anexado.
+- [latest.json](latest.json): versão disponível, URL do instalador, SHA-256 e notas.
 - [changelog.json](changelog.json): histórico público de versões.
 - [Releases](https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases): instaladores `.exe` e arquivos de verificação SHA-256.
 - [releases/README.md](releases/README.md): convenção de publicação.
 
-Depois da primeira publicação completa, o aplicativo consulta `https://raw.githubusercontent.com/hibrael-mateus/ponto-gv-dasa-updates/main/latest.json`, baixa o instalador por HTTPS e confere seu SHA-256 antes de executá-lo. Nenhuma configuração, credencial ou histórico do usuário é publicada aqui.
+O aplicativo consulta `https://raw.githubusercontent.com/hibrael-mateus/ponto-gv-dasa-updates/main/latest.json`, baixa o instalador por HTTPS e confere seu SHA-256 antes de executá-lo. Nenhuma configuração, credencial ou histórico do usuário é publicada aqui.
 
 ## Publicação
 
