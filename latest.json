@@ -1,11 +1,12 @@
 {
-  "version": "1.2.13",
+  "version": "1.2.14",
   "mandatory": false,
-  "published_at": "2026-09-30T21:16:17.574450+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.13/PontoGVDasa-Setup-1.2.13.exe",
-  "sha256": "1f111f753d583446541919e73020c31c37a34a00924bf8d94ab1c51f09463bd9",
+  "published_at": "2026-10-01T16:18:23.724165+00:00",
+  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.14/PontoGVDasa-Setup-1.2.14.exe",
+  "sha256": "bbe345e1746a63792be935c8c3273cac97d19183ecffad9a5d1eb3c6a667fbc1",
   "notes": [
-    "Corrigido o Espelho: quando o Portal RH falhava, a tela ficava presa em \"Consultando o Portal RH...\" sem mostrar o motivo.",
-    "Falhas na conferência das batidas, no envio ao EasyMOB e nas atualizações agora ficam registradas no log para diagnóstico."
+    "Conferência do fim do dia corrigida: as batidas agora são casadas com a agenda pelo horário, e não pela posição. A pendência informada é a marcação que realmente faltou.",
+    "O aviso do fim do dia lista todas as batidas de hoje com o rótulo de cada uma, mesmo quando está tudo certo.",
+    "Saída em hora extra ou retorno do almoço atrasado não aparecem mais como batida extra quando a ordem não deixa dúvida."
   ]
 }
