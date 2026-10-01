@@ -1,11 +1,12 @@
 {
-  "version": "1.2.16",
-  "mandatory": true,
-  "published_at": "2026-10-01T17:40:58.799422+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.16/PontoGVDasa-Setup-1.2.16.exe",
-  "sha256": "138c277cf0443203384e7378c3faaf8623368ee635a988501898cccd8e7c1b1c",
+  "version": "1.2.17",
+  "mandatory": false,
+  "published_at": "2026-10-01T17:53:40.005843+00:00",
+  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.17/PontoGVDasa-Setup-1.2.17.exe",
+  "sha256": "e09ef3386818a660912cc361e35f5e4fd0216a31881904e51f87f67ce3914158",
   "notes": [
-    "Corrigido o erro \"Failed to load Python DLL\" ao abrir o programa: os arquivos agora ficam na pasta de instalação e não são mais extraídos para a pasta Temp a cada abertura, onde podiam ser apagados ou bloqueados pelo antivírus.",
-    "O programa também abre mais rápido."
+    "Atividade recente agora mostra as batidas de hoje conferidas no Portal RH, inclusive as feitas pelo celular.",
+    "Itens de dias anteriores aparecem com a data (ex.: 30/09 18:02).",
+    "A lista ganhou rolagem para mostrar mais itens."
   ]
 }
