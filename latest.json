@@ -1,12 +1,12 @@
 {
-  "version": "1.2.17",
+  "version": "1.2.18",
   "mandatory": false,
-  "published_at": "2026-10-01T17:53:40.005843+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.17/PontoGVDasa-Setup-1.2.17.exe",
-  "sha256": "e09ef3386818a660912cc361e35f5e4fd0216a31881904e51f87f67ce3914158",
+  "published_at": "2026-10-02T21:55:33.876953+00:00",
+  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.18/PontoGVDasa-Setup-1.2.18.exe",
+  "sha256": "84b998f5389388dcb60888945691bca9832e90b50c00d61f26107ec6bdb98f2a",
   "notes": [
-    "Atividade recente agora mostra as batidas de hoje conferidas no Portal RH, inclusive as feitas pelo celular.",
-    "Itens de dias anteriores aparecem com a data (ex.: 30/09 18:02).",
-    "A lista ganhou rolagem para mostrar mais itens."
+    "O botão Bater ponto agora sempre inicia uma marcação real, mesmo com o modo seguro de teste ativado.",
+    "O botão Teste seguro continua validando o fluxo sem registrar a marcação.",
+    "A interface e a documentação agora deixam clara a diferença entre marcar e testar."
   ]
 }
