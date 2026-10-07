@@ -1,12 +1,14 @@
 {
-  "version": "1.2.18",
+  "version": "1.2.19",
   "mandatory": false,
-  "published_at": "2026-10-02T21:55:33.876953+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.18/PontoGVDasa-Setup-1.2.18.exe",
-  "sha256": "84b998f5389388dcb60888945691bca9832e90b50c00d61f26107ec6bdb98f2a",
+  "published_at": "2026-10-07T23:42:45.129075+00:00",
+  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.19/PontoGVDasa-Setup-1.2.19.exe",
+  "sha256": "f648f512a362a108e4361475cd0ef45668aca5831fd200d585c57844a618ea57",
   "notes": [
-    "O botão Bater ponto agora sempre inicia uma marcação real, mesmo com o modo seguro de teste ativado.",
-    "O botão Teste seguro continua validando o fluxo sem registrar a marcação.",
-    "A interface e a documentação agora deixam clara a diferença entre marcar e testar."
+    "Nova conferência automática de inconsistências: um dia é regular com no mínimo 4 marcações e quantidade par, somando PC e celular.",
+    "Conferência diária às 19:00 (configurável) com aviso de data, horários e marcação que parece faltar; uma nova batida depois regulariza o dia sozinha.",
+    "No dia seguinte, após a primeira batida, o programa pergunta se o ajuste já foi solicitado. Ajustes confirmados não são cobrados de novo.",
+    "Conferências semanal (sexta) e mensal (dia 30) configuráveis, listando só o que continua pendente.",
+    "Nova área Pendências de ponto, com histórico de todos os dias que tiveram problema."
   ]
 }
