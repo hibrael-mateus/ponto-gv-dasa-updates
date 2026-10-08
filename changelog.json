@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.2.21",
+    "mandatory": false,
+    "published_at": "2026-10-08T01:23:55.458614+00:00",
+    "notes": [
+      "Avisos do ponto podem chegar pelo bot do Teams (mensagem no chat, com notificação) em vez do webhook, quando o modo Corporativo está ligado.",
+      "Se o bot estiver fora do ar, o programa continua usando o webhook ou o aviso do Windows."
+    ]
+  },
+  {
     "version": "1.2.20",
     "mandatory": false,
     "published_at": "2026-10-08T00:12:20.269837+00:00",

@@ -1,11 +1,11 @@
 {
-  "version": "1.2.20",
+  "version": "1.2.21",
   "mandatory": false,
-  "published_at": "2026-10-08T00:12:20.269837+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.20/PontoGVDasa-Setup-1.2.20.exe",
-  "sha256": "554bdbaa83a44c329b35a860e7fdd229f4b46ee57f06d22d407130f0da2a8e41",
+  "published_at": "2026-10-08T01:23:55.458614+00:00",
+  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.21/PontoGVDasa-Setup-1.2.21.exe",
+  "sha256": "3f9c6ae9adabf641e4a24aea6411f49717964997950a091eec4917254b47cad5",
   "notes": [
-    "Dia de segunda a sexta sem nenhuma marcação: o programa pergunta se foi folga, férias ou feriado. A resposta fica no histórico e o dia não é cobrado.",
-    "Se trabalhou nesse dia, dá para responder que já solicitou (ou ainda não) o ajuste, como nos outros dias pendentes."
+    "Avisos do ponto podem chegar pelo bot do Teams (mensagem no chat, com notificação) em vez do webhook, quando o modo Corporativo está ligado.",
+    "Se o bot estiver fora do ar, o programa continua usando o webhook ou o aviso do Windows."
   ]
 }
