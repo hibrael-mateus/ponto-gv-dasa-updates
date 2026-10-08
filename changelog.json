@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.2.20",
+    "mandatory": false,
+    "published_at": "2026-10-08T00:12:20.269837+00:00",
+    "notes": [
+      "Dia de segunda a sexta sem nenhuma marcação: o programa pergunta se foi folga, férias ou feriado. A resposta fica no histórico e o dia não é cobrado.",
+      "Se trabalhou nesse dia, dá para responder que já solicitou (ou ainda não) o ajuste, como nos outros dias pendentes."
+    ]
+  },
+  {
     "version": "1.2.19",
     "mandatory": false,
     "published_at": "2026-10-07T23:42:45.129075+00:00",

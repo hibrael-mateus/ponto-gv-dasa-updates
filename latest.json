@@ -1,14 +1,11 @@
 {
-  "version": "1.2.19",
+  "version": "1.2.20",
   "mandatory": false,
-  "published_at": "2026-10-07T23:42:45.129075+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.19/PontoGVDasa-Setup-1.2.19.exe",
-  "sha256": "f648f512a362a108e4361475cd0ef45668aca5831fd200d585c57844a618ea57",
+  "published_at": "2026-10-08T00:12:20.269837+00:00",
+  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.20/PontoGVDasa-Setup-1.2.20.exe",
+  "sha256": "554bdbaa83a44c329b35a860e7fdd229f4b46ee57f06d22d407130f0da2a8e41",
   "notes": [
-    "Nova conferência automática de inconsistências: um dia é regular com no mínimo 4 marcações e quantidade par, somando PC e celular.",
-    "Conferência diária às 19:00 (configurável) com aviso de data, horários e marcação que parece faltar; uma nova batida depois regulariza o dia sozinha.",
-    "No dia seguinte, após a primeira batida, o programa pergunta se o ajuste já foi solicitado. Ajustes confirmados não são cobrados de novo.",
-    "Conferências semanal (sexta) e mensal (dia 30) configuráveis, listando só o que continua pendente.",
-    "Nova área Pendências de ponto, com histórico de todos os dias que tiveram problema."
+    "Dia de segunda a sexta sem nenhuma marcação: o programa pergunta se foi folga, férias ou feriado. A resposta fica no histórico e o dia não é cobrado.",
+    "Se trabalhou nesse dia, dá para responder que já solicitou (ou ainda não) o ajuste, como nos outros dias pendentes."
   ]
 }
