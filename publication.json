@@ -1,0 +1,16 @@
+{
+  "state": "pending",
+  "version": "1.2.24",
+  "source_commit": "4b9241baa0aa56db58c477c06d971e9bc6ff6d08",
+  "archive_url": "https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-ad88-820e-8358-c3f2c2ed6182/raw?se=2026-11-13T00%3A49%3A16Z&sp=r&sv=2026-06-06&sr=b&scid=5e866e89-1856-4eda-b538-858722f7312a&skoid=33096a49-a96b-4506-9fc4-04a7517f8175&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-12T11%3A30%3A58Z&ske=2026-11-13T11%3A30%3A58Z&sks=b&skv=2026-06-06&sig=Bro%2BIT%2B1l1V9HfTWZheqSNaIesqtlKLj/ESzFFsoC1A%3D",
+  "archive_sha256": "6ab377db12f72870d55472141dd84644232ebba773a1152a4f423940b8e6fb2f",
+  "installer_sha256": "4a776f5fdd80df1181c3228861d9d14d7284311e234f044a1d599d8e2ba21124",
+  "installer_size": 41407347,
+  "notes": [
+    "Solicitações de horas adicionais e ajustes de ponto em lote, com revisão única e envio em segundo plano.",
+    "Consulta do histórico corrigida para aguardar o carregamento do portal e incluir solicitações canceladas sem perder filtros ou paginação.",
+    "Bloqueio de pedidos duplicados e pausa quando o resultado de um envio não pode ser confirmado.",
+    "Horas adicionais pelo saldo líquido diário, com início calculado pela última saída menos a quantidade de horas.",
+    "Telas de solicitação e confirmação de ponto com o layout aprovado e suporte aos temas claro e escuro."
+  ]
+}
