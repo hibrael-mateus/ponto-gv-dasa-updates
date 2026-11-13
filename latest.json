@@ -1,11 +1,14 @@
 {
-  "version": "1.2.21",
+  "version": "1.2.24",
   "mandatory": false,
-  "published_at": "2026-10-08T01:23:55.458614+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.21/PontoGVDasa-Setup-1.2.21.exe",
-  "sha256": "3f9c6ae9adabf641e4a24aea6411f49717964997950a091eec4917254b47cad5",
+  "published_at": "2026-11-13T00:45:25.452599+00:00",
   "notes": [
-    "Avisos do ponto podem chegar pelo bot do Teams (mensagem no chat, com notificação) em vez do webhook, quando o modo Corporativo está ligado.",
-    "Se o bot estiver fora do ar, o programa continua usando o webhook ou o aviso do Windows."
-  ]
+    "Solicitações de horas adicionais e ajustes de ponto em lote, com revisão única e envio em segundo plano.",
+    "Consulta do histórico corrigida para aguardar o carregamento do portal e incluir solicitações canceladas sem perder filtros ou paginação.",
+    "Bloqueio de pedidos duplicados e pausa quando o resultado de um envio não pode ser confirmado.",
+    "Horas adicionais pelo saldo líquido diário, com início calculado pela última saída menos a quantidade de horas.",
+    "Telas de solicitação e confirmação de ponto com o layout aprovado e suporte aos temas claro e escuro."
+  ],
+  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.24/PontoGVDasa-Setup-1.2.24.exe",
+  "sha256": "4a776f5fdd80df1181c3228861d9d14d7284311e234f044a1d599d8e2ba21124"
 }
