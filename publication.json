@@ -1,17 +1,19 @@
 {
-  "state": "published",
-  "version": "1.2.24",
-  "source_commit": "4b9241baa0aa56db58c477c06d971e9bc6ff6d08",
-  "archive_sha256": "6ab377db12f72870d55472141dd84644232ebba773a1152a4f423940b8e6fb2f",
-  "installer_sha256": "4a776f5fdd80df1181c3228861d9d14d7284311e234f044a1d599d8e2ba21124",
-  "installer_size": 41407347,
+  "version": "1.2.25",
+  "state": "pending",
+  "source_commit": "63e798f5feef3290adffcfbd3c70100f77aa77c8",
+  "tested_source_commit": "f62a59d447a70080d4d8f315fd90c6ffe8c5294d",
+  "source_tree": "fbcbbd04159b463ee88b3320c38deabf64388a49",
+  "private_build_run": 43456850519,
+  "archive_url": "https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-e18c-820e-ac5d-379829dd8aaa/raw?se=2026-11-13T16%3A02%3A53Z&sp=r&sv=2026-06-06&sr=b&scid=4aa9496e-3fd0-46d0-a022-3a02d085304a&skoid=33096a49-a96b-4506-9fc4-04a7517f8175&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-11-13T11%3A29%3A59Z&ske=2026-11-14T11%3A29%3A59Z&sks=b&skv=2026-06-06&sig=iOQU5BNV7RsmtogyJpdDUTYZYOvISbhBay/3D28LCMY%3D",
+  "archive_sha256": "d5f7635f7366d42823413f520d95446785ab565a2b82ff3294a88a449b6b68b3",
+  "installer_sha256": "1c89db6fb110c555ac0149638b1ebb554a0a0a78c1d1bc47ebaf4c1d1a894a21",
+  "installer_size": 41466538,
   "notes": [
-    "Solicitações de horas adicionais e ajustes de ponto em lote, com revisão única e envio em segundo plano.",
-    "Consulta do histórico corrigida para aguardar o carregamento do portal e incluir solicitações canceladas sem perder filtros ou paginação.",
-    "Bloqueio de pedidos duplicados e pausa quando o resultado de um envio não pode ser confirmado.",
-    "Horas adicionais pelo saldo líquido diário, com início calculado pela última saída menos a quantidade de horas.",
-    "Telas de solicitação e confirmação de ponto com o layout aprovado e suporte aos temas claro e escuro."
-  ],
-  "published_at": "2026-11-13T00:45:25.452599+00:00",
-  "installer_url": "https://github.com/hibrael-mateus/ponto-gv-dasa-updates/releases/download/v1.2.24/PontoGVDasa-Setup-1.2.24.exe"
+    "Espelho de ponto e ajuste manual seguem o visual aprovado, nos temas claro e escuro.",
+    "Menu de ações com ícones e atalho de Configurações na barra superior; engrenagem também na janela de Configurações.",
+    "Botões Revisar e solicitar e Solicitar pedidos tornam explícitas a revisão e a confirmação do envio em lote.",
+    "Novas solicitações de horas adicionais deixam o detalhamento vazio e preservam o motivo informado.",
+    "Após uma única batida, o aplicativo reconsulta o histórico oficial por até dois minutos para aguardar a confirmação, sem reenviar o ponto."
+  ]
 }
