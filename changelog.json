@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.2.25",
+    "mandatory": false,
+    "published_at": "2026-11-13T15:59:30.025385+00:00",
+    "notes": [
+      "Espelho de ponto e ajuste manual seguem o visual aprovado, nos temas claro e escuro.",
+      "Menu de ações com ícones e atalho de Configurações na barra superior; engrenagem também na janela de Configurações.",
+      "Botões Revisar e solicitar e Solicitar pedidos tornam explícitas a revisão e a confirmação do envio em lote.",
+      "Novas solicitações de horas adicionais deixam o detalhamento vazio e preservam o motivo informado.",
+      "Após uma única batida, o aplicativo reconsulta o histórico oficial por até dois minutos para aguardar a confirmação, sem reenviar o ponto."
+    ]
+  },
+  {
     "version": "1.2.24",
     "mandatory": false,
     "published_at": "2026-11-13T00:45:25.452599+00:00",
