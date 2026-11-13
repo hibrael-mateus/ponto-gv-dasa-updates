@@ -1,0 +1,55 @@
+{
+  "name": "Publicar instalador verificado no canal público",
+  "on": {
+    "push": {
+      "branches": [
+        "main"
+      ],
+      "paths": [
+        "publication.json"
+      ]
+    }
+  },
+  "permissions": {
+    "contents": "write"
+  },
+  "concurrency": {
+    "group": "public-installer-publication",
+    "cancel-in-progress": false
+  },
+  "jobs": {
+    "publish": {
+      "runs-on": "ubuntu-latest",
+      "timeout-minutes": 12,
+      "steps": [
+        {
+          "name": "Checkout",
+          "uses": "actions/checkout@v4"
+        },
+        {
+          "name": "Conferir artefato e instalador",
+          "shell": "python",
+          "run": "import hashlib, json, os, re, urllib.request, zipfile\nfrom pathlib import Path\nfrom urllib.parse import urlparse\ndata=json.loads(Path(\"publication.json\").read_text(encoding=\"utf-8\"))\nversion=data[\"version\"]\nif data.get(\"state\")!=\"pending\" or not re.fullmatch(r\"\\d+\\.\\d+\\.\\d+\",version):\n    raise SystemExit(\"Publicação não pendente ou versão inválida.\")\nfor field in (\"archive_sha256\",\"installer_sha256\"):\n    if not re.fullmatch(r\"[0-9a-f]{64}\",data[field]): raise SystemExit(\"Checksum inválido.\")\nurl=urlparse(data[\"archive_url\"])\nif url.scheme!=\"https\" or not url.hostname or not (url.hostname.endswith(\".blob.core.windows.net\") or url.hostname.endswith(\".actions.githubusercontent.com\") or url.hostname.endswith(\".oaiusercontent.com\")):\n    raise SystemExit(\"Origem do artefato não autorizada.\")\narchive=Path(\"installer-artifact.zip\")\nwith urllib.request.urlopen(data[\"archive_url\"],timeout=120) as source, archive.open(\"wb\") as target:\n    count=0\n    while chunk:=source.read(1024*1024):\n        count+=len(chunk)\n        if count>600*1024*1024: raise SystemExit(\"Arquivo excede o limite.\")\n        target.write(chunk)\nif hashlib.sha256(archive.read_bytes()).hexdigest()!=data[\"archive_sha256\"]:\n    raise SystemExit(\"Checksum do artefato diverge.\")\nfilename=f\"PontoGVDasa-Setup-{version}.exe\"\nwith zipfile.ZipFile(archive) as package:\n    members=package.infolist()\n    if set(m.filename for m in members)!={filename,\"SHA256SUMS-installer.txt\"} or len(members)!=2 or any(m.file_size>600*1024*1024 for m in members):\n        raise SystemExit(\"O artefato não contém exclusivamente o instalador e seu checksum.\")\n    installer=package.read(filename)\n    checksum=package.read(\"SHA256SUMS-installer.txt\").decode(\"utf-8-sig\").strip()\ndigest=hashlib.sha256(installer).hexdigest()\nif digest!=data[\"installer_sha256\"] or len(installer)!=data[\"installer_size\"] or installer[:2]!=b\"MZ\" or checksum!=f\"{digest}  {filename}\":\n    raise SystemExit(\"A integridade do instalador não confere.\")\nout=Path(\"release-assets\")\nout.mkdir()\n(out/filename).write_bytes(installer)\n(out/\"SHA256SUMS.txt\").write_text(f\"{digest}  {filename}\\n\",encoding=\"utf-8\")\n(out/\"RELEASE_NOTES.md\").write_text(\"\\n\".join(\"- \"+note for note in data[\"notes\"])+f\"\\n\\nSHA-256: {digest}\\n\",encoding=\"utf-8\")\nwith open(os.environ[\"GITHUB_ENV\"],\"a\",encoding=\"utf-8\") as env:\n    env.write(f\"VERSION={version}\\nINSTALLER_NAME={filename}\\n\")\nprint(f\"Instalador {version} conferido: {len(installer)} bytes; SHA-256 {digest}.\")\n"
+        },
+        {
+          "name": "Publicar e baixar instalador público",
+          "shell": "bash",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}"
+          },
+          "run": "set -euo pipefail\ntag=\"v${VERSION}\"\ngh release create \"$tag\" \"release-assets/$INSTALLER_NAME\" release-assets/SHA256SUMS.txt --repo \"$GITHUB_REPOSITORY\" --target \"$GITHUB_SHA\" --title \"Ponto GV Dasa ${VERSION}\" --notes-file release-assets/RELEASE_NOTES.md\nmkdir verified-public-download\ngh release download \"$tag\" --repo \"$GITHUB_REPOSITORY\" --pattern \"$INSTALLER_NAME\" --dir verified-public-download"
+        },
+        {
+          "name": "Preparar manifestos após validar o instalador público",
+          "shell": "python",
+          "run": "import hashlib,json,os\nfrom datetime import datetime,timezone\nfrom pathlib import Path\ndata=json.loads(Path(\"publication.json\").read_text(encoding=\"utf-8\"))\nversion=data[\"version\"]\nfilename=f\"PontoGVDasa-Setup-{version}.exe\"\nactual=hashlib.sha256((Path(\"verified-public-download\")/filename).read_bytes()).hexdigest()\nif actual!=data[\"installer_sha256\"]: raise SystemExit(\"O instalador público diverge do build aprovado.\")\nprevious=json.loads(Path(\"latest.json\").read_text(encoding=\"utf-8\"))\nversion_key=lambda value:tuple(map(int,value.split(\".\")))\nif version_key(previous[\"version\"])>=version_key(version): raise SystemExit(\"O canal público já tem versão igual ou mais recente.\")\nnow=datetime.now(timezone.utc).isoformat()\nentry={\"version\":version,\"mandatory\":False,\"published_at\":now,\"notes\":data[\"notes\"]}\nlatest={**entry,\"installer_url\":f\"https://github.com/{os.environ['GITHUB_REPOSITORY']}/releases/download/v{version}/{filename}\",\"sha256\":actual}\nhistory=json.loads(Path(\"changelog.json\").read_text(encoding=\"utf-8\"))\nhistory=[entry]+[old for old in history if old.get(\"version\")!=version]\nPath(\"latest.json\").write_text(json.dumps(latest,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\")\nPath(\"changelog.json\").write_text(json.dumps(history[:30],ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\")\ndata.pop(\"archive_url\",None)\ndata[\"state\"]=\"published\"\ndata[\"published_at\"]=now\ndata[\"installer_url\"]=latest[\"installer_url\"]\nPath(\"publication.json\").write_text(json.dumps(data,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\")\nprint(f\"Manifestos preparados após conferir o download público da versão {version}.\")\n"
+        },
+        {
+          "name": "Publicar canal de atualização",
+          "shell": "bash",
+          "run": "set -euo pipefail\ngit config user.name \"github-actions[bot]\"\ngit config user.email \"41898282+github-actions[bot]@users.noreply.github.com\"\ngit add latest.json changelog.json publication.json\ngit commit -m \"Publicar atualização ${VERSION} [skip ci]\"\ngit push origin HEAD:main"
+        }
+      ]
+    }
+  }
+}
